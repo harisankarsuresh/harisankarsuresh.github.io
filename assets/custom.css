@@ -1,10 +1,33 @@
+/* Animated gradient border for main title */
+
+.animated-gradient-border {
+  position: relative;
+  padding: 0.5em 1em;
+  border-radius: 16px;
+  background: linear-gradient(90deg, #2979ff, #ff1744, #1a237e);
+  background-size: 200% 200%;
+  box-shadow: 0 0 24px #ff174499;
+  animation: borderGradientMove 3s ease-in-out infinite;
+  z-index: 1;
+}
+
+@keyframes borderGradientMove {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+
 body {
   font-family: 'Segoe UI', 'Roboto', Arial, sans-serif;
-  background: linear-gradient(135deg, #0f2027 0%, #2c5364 100%);
+  background: radial-gradient(ellipse at top left, #1a237e 0%, #0d1335 60%, #1b1b2f 100%), url('https://www.transparenttextures.com/patterns/stardust.png');
   color: #f5f5f5;
   margin: 0;
   padding: 0;
+  min-height: 100vh;
+  overflow-x: hidden;
 }
+
 
 .main-title {
   font-size: 2.8rem;
@@ -12,54 +35,95 @@ body {
   letter-spacing: 2px;
   text-align: center;
   margin-top: 2rem;
-  color: #00e6ac;
-  text-shadow: 0 2px 8px #222;
+  color: #2979ff;
+  text-shadow: 0 2px 16px #ff1744, 0 0px 32px #0d1335;
+  animation: fadeInDown 1s cubic-bezier(.77,0,.175,1) 0.2s both;
 }
 
 .subtitle {
   font-size: 1.3rem;
   text-align: center;
-  color: #ffd700;
+  color: #ff1744;
   margin-bottom: 2rem;
+  animation: fadeInUp 1s cubic-bezier(.77,0,.175,1) 0.5s both;
 }
 
 hr {
   border: none;
   height: 2px;
-  background: linear-gradient(90deg, #00e6ac 0%, #ffd700 100%);
+  background: linear-gradient(90deg, #2979ff 0%, #ff1744 100%);
   margin: 2rem 0;
+  opacity: 0.7;
 }
 
 .section-title {
   font-size: 1.5rem;
-  color: #00e6ac;
+  color: #ff1744;
   margin-top: 2rem;
   margin-bottom: 1rem;
   text-shadow: 0 1px 4px #222;
+  position: relative;
+  animation: fadeInLeft 1s cubic-bezier(.77,0,.175,1) 0.7s both;
+}
+
+.section-title::after {
+  content: '';
+  display: block;
+  width: 60px;
+  height: 3px;
+  background: linear-gradient(90deg, #2979ff 0%, #ff1744 100%);
+  margin-top: 8px;
+  border-radius: 2px;
+  margin-left: 0;
 }
 
 a {
-  color: #ffd700;
+  color: #2979ff;
   text-decoration: none;
   font-weight: 600;
+  transition: color 0.2s;
 }
 
 a:hover {
-  color: #00e6ac;
+  color: #ff1744;
   text-decoration: underline;
 }
 
 .projects-list {
   list-style: none;
   padding: 0;
+  margin-bottom: 1.5rem;
 }
 
 .projects-list li {
   background: rgba(44, 83, 100, 0.7);
   margin-bottom: 1rem;
   padding: 1rem;
-  border-radius: 8px;
-  box-shadow: 0 2px 8px #222;
+  border-radius: 12px;
+  box-shadow: 0 2px 12px #0d1335;
+  position: relative;
+  overflow: hidden;
+  animation: fadeIn 1s cubic-bezier(.77,0,.175,1) both;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.projects-list li:hover {
+  transform: scale(1.03) translateY(-4px);
+  box-shadow: 0 6px 24px #ff174499;
+  background: linear-gradient(90deg, #1a237e 0%, #ff1744 100%);
+}
+
+.projects-list li::before {
+  content: '';
+  position: absolute;
+  left: -40px;
+  top: 50%;
+  width: 80px;
+  height: 80px;
+  background: radial-gradient(circle, #2979ff33 0%, transparent 80%);
+  transform: translateY(-50%);
+  z-index: 0;
+  pointer-events: none;
 }
 
 .contact-info {
@@ -68,13 +132,45 @@ a:hover {
   align-items: center;
   gap: 0.5rem;
   margin-top: 1rem;
+  animation: fadeInRight 1s cubic-bezier(.77,0,.175,1) 1.2s both;
 }
 
 .footer {
   text-align: center;
   margin-top: 3rem;
-  color: #aaa;
+  color: #bdbdbd;
   font-size: 1rem;
+  animation: fadeIn 1.5s cubic-bezier(.77,0,.175,1) 1.5s both;
+}
+
+/* Animations */
+@keyframes fadeInDown {
+  0% { opacity: 0; transform: translateY(-40px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+@keyframes fadeInUp {
+  0% { opacity: 0; transform: translateY(40px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+@keyframes fadeInLeft {
+  0% { opacity: 0; transform: translateX(-40px); }
+  100% { opacity: 1; transform: translateX(0); }
+}
+@keyframes fadeInRight {
+  0% { opacity: 0; transform: translateX(40px); }
+  100% { opacity: 1; transform: translateX(0); }
+}
+@keyframes fadeIn {
+  0% { opacity: 0; }
+  100% { opacity: 1; }
+}
+
+/* Particle background effect */
+#particles-js {
+  position: fixed;
+  top: 0; left: 0; width: 100vw; height: 100vh;
+  z-index: -1;
+  pointer-events: none;
 }
 
 @media (max-width: 600px) {

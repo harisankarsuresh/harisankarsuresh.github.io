@@ -1,7 +1,9 @@
 
-<link rel="stylesheet" href="assets/custom.css">
 
-<div class="main-title">Harisankar Suresh</div>
+<link rel="stylesheet" href="assets/custom.css">
+<div id="particles-js"></div>
+
+<div class="main-title animated-gradient-border">Harisankar Suresh</div>
 <div class="subtitle">Data Scientist & Cell Modeling Engineer | EV Battery Systems | AI Diagnostics</div>
 <hr>
 
@@ -31,3 +33,32 @@
   <strong>Passionate about EVs, AI, and battery systems. Driving innovation in energy storage.</strong>
 </div>
 </div>
+
+<script src="assets/particles.min.js"></script>
+<script>
+// Particle background config
+particlesJS('particles-js', {
+  particles: {
+    number: { value: 60, density: { enable: true, value_area: 800 } },
+    color: { value: ["#2979ff", "#ff1744", "#1a237e"] },
+    shape: { type: "circle" },
+    opacity: { value: 0.5, random: true },
+    size: { value: 4, random: true },
+    line_linked: { enable: true, distance: 120, color: "#2979ff", opacity: 0.4, width: 1 },
+    move: { enable: true, speed: 2, direction: "none", random: false, straight: false, out_mode: "out" }
+  },
+  interactivity: {
+    detect_on: "canvas",
+    events: {
+      onhover: { enable: true, mode: "grab" },
+      onclick: { enable: true, mode: "push" },
+      resize: true
+    },
+    modes: {
+      grab: { distance: 140, line_linked: { opacity: 0.7 } },
+      push: { particles_nb: 4 }
+    }
+  },
+  retina_detect: true
+});
+</script>
