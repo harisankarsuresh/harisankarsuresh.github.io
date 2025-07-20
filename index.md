@@ -1,37 +1,53 @@
 
 
+
 <link rel="stylesheet" href="assets/custom.css">
 <div id="particles-js"></div>
 
-<div class="main-title animated-gradient-border">Harisankar Suresh</div>
-<div class="subtitle">Data Scientist & Cell Modeling Engineer | EV Battery Systems | AI Diagnostics</div>
-<hr>
+<div class="slideshow">
+  <section class="slide slide-name">
+    <h1 class="main-title">Harisankar Suresh</h1>
+    <div class="subtitle">Data Scientist & Cell Modeling Engineer<br><span class="emoji">🔋🚗🤖</span></div>
+    <p class="about-text">EV Battery Systems | AI Diagnostics | Physics-based Simulation</p>
+    <button class="slide-btn" onclick="showSlide(1)">About Me</button>
+  </section>
 
-<div style="max-width:700px;margin:auto;">
-<p>Welcome to my portfolio. I specialize in electric vehicle battery systems, AI-driven diagnostics, and scalable physics-based simulation tools. My work bridges advanced algorithms, real-world deployment, and technical leadership in the battery-AI space.</p>
+  <section class="slide slide-about" style="display:none;">
+    <h2 class="section-title">About Me <span class="emoji">👨‍🔬</span></h2>
+    <p>I work at Ola Electric, building next-gen BMS algorithms, degradation models (PDEs, PINNs), and deploying SoH/SoC estimation techniques for real-world fleets.<br>
+    Expert in Python <span class="emoji">🐍</span> and C <span class="emoji">💻</span>, leading tool development and mentoring teams.</p>
+    <a href="about.md" class="slide-link">Read more »</a> | <a href="#" class="slide-link">Download Resume</a>
+    <button class="slide-btn" onclick="showSlide(2)">Projects</button>
+  </section>
 
-<div class="section-title">Projects</div>
-<ul class="projects-list">
-  <li><strong>olabatsim</strong>: Scalable battery simulation platform for EVs</li>
-  <li><strong>lime_internal_getter</strong>: Internal state estimation for battery packs</li>
-  <li><strong>evolve-ai</strong>: AI-powered diagnostics and life estimation</li>
-</ul>
-<a href="projects.md">See all projects »</a>
+  <section class="slide slide-projects" style="display:none;">
+    <h2 class="section-title">Projects <span class="emoji">🛠️📊</span></h2>
+    <ul class="projects-list">
+      <li><strong>olabatsim</strong> <span class="emoji">🔋</span>: Scalable battery simulation platform for EVs</li>
+      <li><strong>lime_internal_getter</strong> <span class="emoji">🧪</span>: Internal state estimation for battery packs</li>
+      <li><strong>evolve-ai</strong> <span class="emoji">🤖</span>: AI-powered diagnostics and life estimation</li>
+    </ul>
+    <div class="plotly-placeholder"> <!-- Placeholder for future Plotly graphs -->
+      <span class="emoji">📈</span> <em>Cool graphs coming soon!</em>
+    </div>
+    <a href="projects.md" class="slide-link">See all projects »</a>
+    <button class="slide-btn" onclick="showSlide(3)">Contact</button>
+  </section>
 
-<div class="section-title">About Me</div>
-<p>I work at Ola Electric, building next-gen BMS algorithms, degradation models (PDEs, PINNs), and deploying SoH/SoC estimation techniques for real-world fleets. I’m an expert in Python and C, leading tool development and mentoring teams.</p>
-<a href="about.md">Read more »</a> | <a href="#">Download Resume</a>
-
-<div class="section-title">Contact</div>
-<div class="contact-info">
-  <span>Email: <a href="mailto:your.email@domain.com">your.email@domain.com</a></span>
-  <span>LinkedIn: <a href="#">linkedin.com/in/harisankarsuresh</a></span>
+  <section class="slide slide-contact" style="display:none;">
+    <h2 class="section-title">Contact <span class="emoji">✉️</span></h2>
+    <div class="contact-info">
+      <span>Email: <a href="mailto:your.email@domain.com">your.email@domain.com</a></span>
+      <span>LinkedIn: <a href="#">linkedin.com/in/harisankarsuresh</a></span>
+    </div>
+    <a href="contact.md" class="slide-link">More contact options »</a>
+    <button class="slide-btn" onclick="showSlide(0)">Home</button>
+  </section>
 </div>
 
 <div class="footer">
   <hr>
-  <strong>Passionate about EVs, AI, and battery systems. Driving innovation in energy storage.</strong>
-</div>
+  <strong>Passionate about EVs <span class="emoji">🔋</span>, AI <span class="emoji">🤖</span>, and battery systems. Driving innovation in energy storage.</strong>
 </div>
 
 <script src="assets/particles.min.js"></script>
@@ -39,13 +55,13 @@
 // Particle background config
 particlesJS('particles-js', {
   particles: {
-    number: { value: 60, density: { enable: true, value_area: 800 } },
+    number: { value: 40, density: { enable: true, value_area: 800 } },
     color: { value: ["#2979ff", "#ff1744", "#1a237e"] },
     shape: { type: "circle" },
-    opacity: { value: 0.5, random: true },
-    size: { value: 4, random: true },
-    line_linked: { enable: true, distance: 120, color: "#2979ff", opacity: 0.4, width: 1 },
-    move: { enable: true, speed: 2, direction: "none", random: false, straight: false, out_mode: "out" }
+    opacity: { value: 0.3, random: true },
+    size: { value: 3, random: true },
+    line_linked: { enable: true, distance: 120, color: "#2979ff", opacity: 0.2, width: 1 },
+    move: { enable: true, speed: 1.5, direction: "none", random: false, straight: false, out_mode: "out" }
   },
   interactivity: {
     detect_on: "canvas",
@@ -55,10 +71,17 @@ particlesJS('particles-js', {
       resize: true
     },
     modes: {
-      grab: { distance: 140, line_linked: { opacity: 0.7 } },
-      push: { particles_nb: 4 }
+      grab: { distance: 140, line_linked: { opacity: 0.5 } },
+      push: { particles_nb: 2 }
     }
   },
   retina_detect: true
 });
+
+// Simple slideshow logic
+function showSlide(idx) {
+  var slides = document.querySelectorAll('.slide');
+  slides.forEach(function(s, i) { s.style.display = (i === idx) ? 'block' : 'none'; });
+}
+showSlide(0);
 </script>
