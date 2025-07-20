@@ -1,0 +1,18 @@
+title: Harisankar Suresh Portfolio
+email: your.email@domain.com
+description: >-
+  Portfolio of Harisankar Suresh, Data Scientist & Cell Modeling Engineer specializing in EV battery systems and AI diagnostics.
+theme: minima
+baseurl: ""
+url: "https://harisankarsuresh.github.io"
+
+# Navigation
+nav:
+  - title: "Home"
+    url: "/index.md"
+  - title: "Projects"
+    url: "/projects.md"
+  - title: "About"
+    url: "/about.md"
+  - title: "Contact"
+    url: "/contact.md"
