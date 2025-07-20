@@ -1,3 +1,38 @@
+/* Tabbar styles */
+.tabbar {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #232946;
+  border-bottom: 2px solid #b8c1ec;
+  margin-bottom: 2rem;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+.tab {
+  padding: 1rem 2rem;
+  cursor: pointer;
+  color: #b8c1ec;
+  font-weight: 600;
+  font-size: 1.1rem;
+  border: none;
+  background: none;
+  transition: color 0.2s, border-bottom 0.2s;
+}
+.tab.active {
+  color: #0cb2ff;
+  border-bottom: 3px solid #0cb2ff;
+}
+
+/* Tab content styles */
+.tabcontent {
+  max-width: 700px;
+  margin: auto;
+}
+.tab-section {
+  animation: fadeIn 0.7s;
+}
 /* Animated gradient border for main title */
 
 .animated-gradient-border {

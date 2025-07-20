@@ -4,23 +4,25 @@
 <link rel="stylesheet" href="assets/custom.css">
 <div id="particles-js"></div>
 
-<div class="slideshow">
-  <section class="slide slide-name">
+
+<div class="tabbar">
+  <div class="tab" onclick="showTab(0)">About</div>
+  <div class="tab" onclick="showTab(1)">Projects</div>
+  <div class="tab" onclick="showTab(2)">Contact</div>
+</div>
+
+<div class="tabcontent">
+  <section class="tab-section tab-about">
     <h1 class="main-title">Harisankar Suresh</h1>
     <div class="subtitle">Data Scientist & Cell Modeling Engineer<br><span class="emoji">🔋🚗🤖</span></div>
     <p class="about-text">EV Battery Systems | AI Diagnostics | Physics-based Simulation</p>
-    <button class="slide-btn" onclick="showSlide(1)">About Me</button>
-  </section>
-
-  <section class="slide slide-about" style="display:none;">
     <h2 class="section-title">About Me <span class="emoji">👨‍🔬</span></h2>
     <p>I work at Ola Electric, building next-gen BMS algorithms, degradation models (PDEs, PINNs), and deploying SoH/SoC estimation techniques for real-world fleets.<br>
     Expert in Python <span class="emoji">🐍</span> and C <span class="emoji">💻</span>, leading tool development and mentoring teams.</p>
     <a href="about.md" class="slide-link">Read more »</a> | <a href="#" class="slide-link">Download Resume</a>
-    <button class="slide-btn" onclick="showSlide(2)">Projects</button>
   </section>
 
-  <section class="slide slide-projects" style="display:none;">
+  <section class="tab-section tab-projects" style="display:none;">
     <h2 class="section-title">Projects <span class="emoji">🛠️📊</span></h2>
     <ul class="projects-list">
       <li><strong>olabatsim</strong> <span class="emoji">🔋</span>: Scalable battery simulation platform for EVs</li>
@@ -31,17 +33,15 @@
       <span class="emoji">📈</span> <em>Cool graphs coming soon!</em>
     </div>
     <a href="projects.md" class="slide-link">See all projects »</a>
-    <button class="slide-btn" onclick="showSlide(3)">Contact</button>
   </section>
 
-  <section class="slide slide-contact" style="display:none;">
+  <section class="tab-section tab-contact" style="display:none;">
     <h2 class="section-title">Contact <span class="emoji">✉️</span></h2>
     <div class="contact-info">
       <span>Email: <a href="mailto:your.email@domain.com">your.email@domain.com</a></span>
       <span>LinkedIn: <a href="#">linkedin.com/in/harisankarsuresh</a></span>
     </div>
     <a href="contact.md" class="slide-link">More contact options »</a>
-    <button class="slide-btn" onclick="showSlide(0)">Home</button>
   </section>
 </div>
 
@@ -78,10 +78,16 @@ particlesJS('particles-js', {
   retina_detect: true
 });
 
-// Simple slideshow logic
-function showSlide(idx) {
-  var slides = document.querySelectorAll('.slide');
-  slides.forEach(function(s, i) { s.style.display = (i === idx) ? 'block' : 'none'; });
+// Tab navigation logic
+function showTab(idx) {
+  var tabs = document.querySelectorAll('.tab');
+  var sections = document.querySelectorAll('.tab-section');
+  tabs.forEach(function(t, i) {
+    t.classList.toggle('active', i === idx);
+  });
+  sections.forEach(function(s, i) {
+    s.style.display = (i === idx) ? 'block' : 'none';
+  });
 }
-showSlide(0);
+showTab(0);
 </script>
