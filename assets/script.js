@@ -86,13 +86,31 @@ function update3D() {
 
 window.addEventListener('scroll', update3D);
 
-// Smooth scrolling for nav links
-document.querySelectorAll('nav a').forEach(anchor => {
+// Smooth scrolling for nav links (exclude download links)
+document.querySelectorAll('nav a.nav-link').forEach(anchor => {
     anchor.addEventListener('click', function (e) {
         e.preventDefault();
-        document.querySelector(this.getAttribute('href')).scrollIntoView({
-            behavior: 'smooth'
-        });
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+            target.scrollIntoView({
+                behavior: 'smooth'
+            });
+        }
+    });
+});
+document.querySelectorAll('nav a').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+        // Don't prevent default for download links
+        if (this.hasAttribute('download') || this.classList.contains('download-link')) {
+            return;
+        }
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+            target.scrollIntoView({
+                behavior: 'smooth'
+            });
+        }
     });
 });
 
@@ -123,3 +141,21 @@ const observer = new IntersectionObserver(entries => {
 sections.forEach(section => {
     observer.observe(section);
 });
+
+// Download function
+function forceDownload() {
+    console.log('Download function called'); // Debug log
+    
+    // Create a temporary link element
+    const link = document.createElement('a');
+    link.href = 'assets/resume/Harisankar_Suresh_Resume.pdf';
+    link.download = 'Harisankar_Suresh_Resume.pdf';
+    link.style.display = 'none';
+    
+    // Append to body, click, and remove
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+    
+    console.log('Download triggered'); // Debug log
+}

@@ -30,36 +30,87 @@
         </section>
 
         <section id="about" class="content-section">
-            <h2 class="section-title">About Me 👨‍🔬</h2>
-            <p>I work at Ola Electric, building next-gen BMS algorithms, degradation models (PDEs, PINNs), and deploying SoH/SoC estimation techniques for real-world fleets.<br>
-            Expert in Python 🐍 and C 💻, leading tool development and mentoring teams.</p>
-            <a href="#" class="cta-button">Download Resume</a>
+            <div class="slideshow">
+                <section class="slide slide-about" style="display:block;">
+                    <h2 class="section-title">About Me <span class="emoji">👨‍🔬</span></h2>
+                    <p>I work at Ola Electric, building next-gen BMS algorithms, degradation models (PDEs, PINNs), and deploying SoH/SoC estimation techniques for real-world fleets.<br>
+                    Expert in Python <span class="emoji">🐍</span> and C <span class="emoji">💻</span>, leading tool development and mentoring teams.</p>
+                    
+                    <!-- Download link with special handling -->
+                    <button onclick="forceDownload()" class="download-button">📄 Download Resume</button>
+                </section>
+            </div>
+            <div class="footer">
+                <hr>
+                <strong>Passionate about EVs <span class="emoji">🔋</span>, AI <span class="emoji">🤖</span>, and battery systems. Driving innovation in energy storage.</strong>
+            </div>
         </section>
 
         <section id="projects" class="content-section">
-            <h2 class="section-title">Projects 🛠️📊</h2>
-            <div class="project-grid">
-                <div class="project-card">
-                    <h3>olabatsim 🔋</h3>
-                    <p>Scalable battery simulation platform for EVs.</p>
-                </div>
-                <div class="project-card">
-                    <h3>lime_internal_getter 🧪</h3>
-                    <p>Internal state estimation for battery packs.</p>
-                </div>
-                <div class="project-card">
-                    <h3>evolve-ai 🤖</h3>
-                    <p>AI-powered diagnostics and life estimation.</p>
-                </div>
+            <div class="slideshow">
+                <section class="slide slide-projects" style="display:block;">
+                    <h2 class="section-title">Projects <span class="emoji">🛠️📊</span></h2>
+                    
+                    <div class="projects-grid">
+                        <div class="project-card">
+                            <div class="project-icon">🔋</div>
+                            <h3 class="project-title">olabatsim</h3>
+                            <p class="project-description">Scalable battery simulation platform for EVs with advanced thermal modeling and degradation analysis</p>
+                            <div class="project-tech">
+                                <span class="tech-tag">Python</span>
+                                <span class="tech-tag">Simulation</span>
+                                <span class="tech-tag">ML</span>
+                            </div>
+                        </div>
+                        
+                        <div class="project-card">
+                            <div class="project-icon">🧪</div>
+                            <h3 class="project-title">lime_internal_getter</h3>
+                            <p class="project-description">Internal state estimation for battery packs using advanced algorithms and sensor fusion techniques</p>
+                            <div class="project-tech">
+                                <span class="tech-tag">C++</span>
+                                <span class="tech-tag">Kalman Filter</span>
+                                <span class="tech-tag">IoT</span>
+                            </div>
+                        </div>
+                        
+                        <div class="project-card">
+                            <div class="project-icon">🤖</div>
+                            <h3 class="project-title">evolve-ai</h3>
+                            <p class="project-description">AI-powered diagnostics and life estimation system for next-generation battery management</p>
+                            <div class="project-tech">
+                                <span class="tech-tag">AI/ML</span>
+                                <span class="tech-tag">TensorFlow</span>
+                                <span class="tech-tag">Analytics</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="plotly-placeholder">
+                        <span class="emoji">📈</span> <em>Cool graphs coming soon!</em>
+                    </div>
+                </section>
+            </div>
+            <div class="footer">
+                <hr>
+                <strong>Passionate about EVs <span class="emoji">🔋</span>, AI <span class="emoji">🤖</span>, and battery systems. Driving innovation in energy storage.</strong>
             </div>
         </section>
 
         <section id="contact" class="content-section">
-            <h2 class="section-title">Contact ✉️</h2>
-            <p>Let's connect and build the future of energy storage.</p>
-            <div class="contact-links">
-                <a href="mailto:your.email@domain.com" class="cta-button">Email Me</a>
-                <a href="#" class="cta-button">LinkedIn</a>
+            <div class="slideshow">
+                <section class="slide slide-contact" style="display:block;">
+                    <h2 class="section-title">Contact <span class="emoji">✉️</span></h2>
+                    <p>Let's connect and build the future of energy storage.</p>
+                    <div class="contact-links">
+                        <a href="mailto:your.email@domain.com" class="cta-button">Email Me</a>
+                        <a href="#" class="cta-button">LinkedIn</a>
+                    </div>
+                </section>
+            </div>
+            <div class="footer">
+                <hr>
+                <strong>Passionate about EVs <span class="emoji">🔋</span>, AI <span class="emoji">🤖</span>, and battery systems. Driving innovation in energy storage.</strong>
             </div>
         </section>
     </main>

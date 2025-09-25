@@ -3,7 +3,7 @@
   <section class="slide slide-contact" style="display:block;">
     <h2 class="section-title">Contact <span class="emoji">✉️</span></h2>
     <div class="contact-info">
-      <span>Email: <a href="mailto:your.email@domain.com">your.email@domain.com</a></span>
+      <span>Email: <a href="mailto:harisankarsuresh100@gmail.com">harisankarsuresh100@gmail.com</a></span>
       <span>LinkedIn: <a href="#">linkedin.com/in/harisankarsuresh</a></span>
     </div>
   </section>
