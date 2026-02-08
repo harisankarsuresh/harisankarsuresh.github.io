@@ -6,53 +6,118 @@
     <title>Skills | Harisankar Suresh</title>
     <link rel="stylesheet" href="assets/custom.css">
     <link rel="stylesheet" href="assets/skills.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
 </head>
 <body>
+    <div id="canvas-container" aria-hidden="true"></div>
+
     <header>
         <div class="logo">
             <a href="index.html">HS</a>
         </div>
         <nav>
             <a href="index.html#about" class="nav-link">About</a>
+            <a href="index.html#experience" class="nav-link">Experience</a>
             <a href="index.html#projects" class="nav-link">Projects</a>
             <a href="skills.html" class="nav-link active">Skills</a>
+            <a href="index.html#education" class="nav-link">Education</a>
+            <a href="index.html#publications" class="nav-link">Publications</a>
             <a href="index.html#contact" class="nav-link">Contact</a>
         </nav>
     </header>
 
     <main>
-        <section class="content-section">
-            <h1 class="section-title">Core Skills</h1>
-            <div class="skills-grid">
-                <div class="skill-card">
-                    <img src="assets/logos/c.svg" alt="C Logo">
-                    <span>C</span>
+        <section class="section">
+            <div class="container">
+                <div class="section-header reveal">
+                    <div>
+                        <p class="section-kicker">Toolkit</p>
+                        <h1>Skills</h1>
+                    </div>
+                    <p class="section-summary">Tools, platforms, and methods used across battery modeling and simulation programs.</p>
                 </div>
-                <div class="skill-card">
-                    <img src="assets/logos/python.svg" alt="Python Logo">
-                    <span>Python</span>
-                </div>
-                <div class="skill-card">
-                    <img src="assets/logos/pytorch.svg" alt="PyTorch Logo">
-                    <span>PyTorch</span>
-                </div>
-                <div class="skill-card">
-                    <img src="assets/logos/scikit-learn.svg" alt="Scikit-learn Logo">
-                    <span>Scikit-learn</span>
-                </div>
-                <div class="skill-card">
-                    <img src="assets/logos/docker.svg" alt="Docker Logo">
-                    <span>Docker</span>
-                </div>
-                <div class="skill-card">
-                    <span>PyBaMM</span>
+                <div class="skills-grid reveal">
+                    <div class="panel skill-group">
+                        <h3>Developer Tools</h3>
+                        <div class="tag-list">
+                            <span class="tag">Python</span>
+                            <span class="tag">C</span>
+                            <span class="tag">Go</span>
+                            <span class="tag">Git</span>
+                            <span class="tag">PyTorch</span>
+                            <span class="tag">TensorFlow</span>
+                            <span class="tag">PyBaMM</span>
+                            <span class="tag">MATLAB</span>
+                        </div>
+                    </div>
+                    <div class="panel skill-group">
+                        <h3>Simulation and Software</h3>
+                        <div class="tag-list">
+                            <span class="tag">GT-Suite</span>
+                            <span class="tag">GT-AutoLion</span>
+                            <span class="tag">COMSOL</span>
+                            <span class="tag">ANSYS</span>
+                            <span class="tag">SolidWorks</span>
+                            <span class="tag">Simulink</span>
+                        </div>
+                    </div>
+                    <div class="panel skill-group">
+                        <h3>Data and Databases</h3>
+                        <div class="tag-list">
+                            <span class="tag">SQL</span>
+                            <span class="tag">PostgreSQL</span>
+                            <span class="tag">MongoDB</span>
+                            <span class="tag">Pandas</span>
+                            <span class="tag">NumPy</span>
+                        </div>
+                    </div>
+                    <div class="panel skill-group">
+                        <h3>Automation and Reporting</h3>
+                        <div class="tag-list">
+                            <span class="tag">Automation Pipelines</span>
+                            <span class="tag">Data Validation</span>
+                            <span class="tag">ETL</span>
+                            <span class="tag">Dashboards</span>
+                            <span class="tag">Monitoring</span>
+                        </div>
+                    </div>
+                    <div class="panel skill-group">
+                        <h3>Modeling and Methods</h3>
+                        <div class="tag-list">
+                            <span class="tag">FEA</span>
+                            <span class="tag">CFD</span>
+                            <span class="tag">Kalman Filters</span>
+                            <span class="tag">SoH/SoC</span>
+                            <span class="tag">Diagnostics</span>
+                            <span class="tag">Degradation Modeling</span>
+                            <span class="tag">HPC</span>
+                        </div>
+                    </div>
+                    <div class="panel skill-group">
+                        <h3>Soft Skills</h3>
+                        <div class="tag-list">
+                            <span class="tag">Project Management</span>
+                            <span class="tag">Leadership</span>
+                            <span class="tag">Communication</span>
+                        </div>
+                    </div>
+                    <div class="panel skill-group">
+                        <h3>Languages</h3>
+                        <div class="tag-list">
+                            <span class="tag">English</span>
+                            <span class="tag">Hindi</span>
+                            <span class="tag">Malayalam</span>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
     </main>
 
     <footer>
-        <p>&copy; 2025 Harisankar Suresh. All rights reserved.</p>
+        <p>Copyright 2026 Harisankar Suresh. All rights reserved.</p>
     </footer>
+
+    <script src="assets/script.js"></script>
 </body>
 </html>

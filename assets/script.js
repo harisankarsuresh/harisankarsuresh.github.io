@@ -1,190 +1,152 @@
-// Scene setup
-const scene = new THREE.Scene();
-const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
-const renderer = new THREE.WebGLRenderer({ alpha: true, antialias: true });
-renderer.setSize(window.innerWidth, window.innerHeight);
-document.getElementById('canvas-container').appendChild(renderer.domElement);
+const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-// --- 3D Microchip Model ---
-const group = new THREE.Group();
-
-// Chip Body
-const chipBodyMaterial = new THREE.MeshStandardMaterial({
-    color: 0x222222,
-    metalness: 0.8,
-    roughness: 0.3,
-});
-const chipBody = new THREE.Mesh(new THREE.BoxGeometry(3, 3, 0.25), chipBodyMaterial);
-group.add(chipBody);
-
-// Central Die
-const dieMaterial = new THREE.MeshStandardMaterial({
-    color: 0x000000,
-    metalness: 0.9,
-    roughness: 0.2,
-    emissive: 0x0077ff,
-    emissiveIntensity: 0.2
-});
-const die = new THREE.Mesh(new THREE.BoxGeometry(1.2, 1.2, 0.15), dieMaterial);
-die.position.z = 0.18;
-group.add(die);
-
-// Pins
-const pinMaterial = new THREE.MeshStandardMaterial({
-    color: 0x999999,
-    metalness: 1.0,
-    roughness: 0.2
-});
-const pinGeometry = new THREE.BoxGeometry(0.12, 0.5, 0.1);
-const numPins = 10;
-const pinSpacing = 2.8 / (numPins - 1);
-
-for (let i = 0; i < numPins; i++) {
-    const xPos = -1.4 + i * pinSpacing;
-
-    // Top pins
-    const pinTop = new THREE.Mesh(pinGeometry, pinMaterial);
-    pinTop.position.set(xPos, 1.75, 0);
-    group.add(pinTop);
-
-    // Bottom pins
-    const pinBottom = new THREE.Mesh(pinGeometry, pinMaterial);
-    pinBottom.position.set(xPos, -1.75, 0);
-    group.add(pinBottom);
-}
-
-const numSidePins = 8;
-const sidePinSpacing = 2.8 / (numSidePins - 1);
-for (let i = 0; i < numSidePins; i++) {
-    const yPos = -1.4 + i * sidePinSpacing;
-    // Left pins
-    const pinLeft = new THREE.Mesh(pinGeometry, pinMaterial);
-    pinLeft.rotation.z = Math.PI / 2;
-    pinLeft.position.set(-1.75, yPos, 0);
-    group.add(pinLeft);
-
-    // Right pins
-    const pinRight = new THREE.Mesh(pinGeometry, pinMaterial);
-    pinRight.rotation.z = Math.PI / 2;
-    pinRight.position.set(1.75, yPos, 0);
-    group.add(pinRight);
-}
-
-
-scene.add(group);
-
-// --- Lighting ---
-const ambientLight = new THREE.AmbientLight(0xffffff, 0.5);
-scene.add(ambientLight);
-
-const spotLight = new THREE.SpotLight(0xffffff, 0.8);
-spotLight.position.set(5, 10, 10);
-spotLight.angle = Math.PI / 8;
-spotLight.penumbra = 0.2;
-spotLight.castShadow = true;
-scene.add(spotLight);
-
-const pointLight = new THREE.PointLight(0x0077ff, 0.5);
-pointLight.position.set(-5, -5, 5);
-scene.add(pointLight);
-
-
-camera.position.z = 6;
-
-// --- Mouse Interaction ---
-let mouseX = 0, mouseY = 0;
-document.addEventListener('mousemove', (event) => {
-    mouseX = (event.clientX / window.innerWidth) * 2 - 1;
-    mouseY = -(event.clientY / window.innerHeight) * 2 + 1;
-});
-
-
-// Animation loop
-function animate() {
-    requestAnimationFrame(animate);
-
-    // Subtle continuous rotation
-    group.rotation.x += 0.001;
-    group.rotation.y += 0.002;
-
-    // Mouse follow effect
-    group.rotation.x += (mouseY * 0.5 - group.rotation.x) * 0.05;
-    group.rotation.y += (mouseX * 0.5 - group.rotation.y) * 0.05;
-
-
-    renderer.render(scene, camera);
-}
-animate();
-
-// Smooth scrolling for nav links (exclude download links)
-document.querySelectorAll('nav a.nav-link').forEach(anchor => {
-    anchor.addEventListener('click', function (e) {
-        e.preventDefault();
-        const target = document.querySelector(this.getAttribute('href'));
-        if (target) {
-            target.scrollIntoView({
-                behavior: 'smooth'
-            });
-        }
-    });
-});
-document.querySelectorAll('nav a').forEach(anchor => {
-    anchor.addEventListener('click', function (e) {
-        // Don't prevent default for download links
-        if (this.hasAttribute('download') || this.classList.contains('download-link')) {
-            return;
-        }
-        e.preventDefault();
-        const target = document.querySelector(this.getAttribute('href'));
-        if (target) {
-            target.scrollIntoView({
-                behavior: 'smooth'
-            });
-        }
-    });
-});
-
-// Handle window resize
-window.addEventListener('resize', () => {
-    camera.aspect = window.innerWidth / window.innerHeight;
-    camera.updateProjectionMatrix();
+const canvasContainer = document.getElementById('canvas-container');
+if (canvasContainer && window.THREE) {
+    const scene = new THREE.Scene();
+    const camera = new THREE.PerspectiveCamera(70, window.innerWidth / window.innerHeight, 0.1, 1000);
+    const renderer = new THREE.WebGLRenderer({ alpha: true, antialias: true });
     renderer.setSize(window.innerWidth, window.innerHeight);
-});
+    canvasContainer.appendChild(renderer.domElement);
 
-// Intersection observer for nav link highlighting
-const sections = document.querySelectorAll('.content-section');
-const observer = new IntersectionObserver(entries => {
-    entries.forEach(entry => {
-        const id = entry.target.getAttribute('id');
-        const navLink = document.querySelector(`nav a[href="#${id}"]`);
-        
-        if (entry.isIntersecting) {
-            if (navLink) {
-                document.querySelectorAll('nav a').forEach(link => link.classList.remove('active'));
-                navLink.classList.add('active');
+    const group = new THREE.Group();
+
+    const planeGeometry = new THREE.PlaneGeometry(9, 7, 80, 64);
+    const planeMaterial = new THREE.MeshStandardMaterial({
+        color: 0x5ce1e6,
+        wireframe: true,
+        transparent: true,
+        opacity: 0.35
+    });
+    const plane = new THREE.Mesh(planeGeometry, planeMaterial);
+    plane.rotation.x = -Math.PI / 2.6;
+    plane.position.y = -0.5;
+    group.add(plane);
+
+    const basePositions = planeGeometry.attributes.position.array.slice();
+
+    const pointCount = 320;
+    const pointPositions = new Float32Array(pointCount * 3);
+    for (let i = 0; i < pointCount; i++) {
+        const x = (Math.random() - 0.5) * 7;
+        const y = (Math.random() - 0.2) * 4;
+        const z = (Math.random() - 0.5) * 2;
+        pointPositions[i * 3] = x;
+        pointPositions[i * 3 + 1] = y;
+        pointPositions[i * 3 + 2] = z;
+    }
+
+    const pointsGeometry = new THREE.BufferGeometry();
+    pointsGeometry.setAttribute('position', new THREE.BufferAttribute(pointPositions, 3));
+
+    const pointsMaterial = new THREE.PointsMaterial({
+        color: 0xf6c453,
+        size: 0.06,
+        transparent: true,
+        opacity: 0.75
+    });
+
+    const points = new THREE.Points(pointsGeometry, pointsMaterial);
+    group.add(points);
+
+    scene.add(group);
+
+    const ambientLight = new THREE.AmbientLight(0xffffff, 0.55);
+    scene.add(ambientLight);
+
+    const keyLight = new THREE.PointLight(0x7d7cff, 1.0);
+    keyLight.position.set(5, 6, 6);
+    scene.add(keyLight);
+
+    const fillLight = new THREE.PointLight(0x5ce1e6, 0.8);
+    fillLight.position.set(-5, -4, 3);
+    scene.add(fillLight);
+
+    camera.position.set(0, 1.2, 7);
+
+    let mouseX = 0;
+    let mouseY = 0;
+    document.addEventListener('mousemove', (event) => {
+        mouseX = (event.clientX / window.innerWidth) * 2 - 1;
+        mouseY = -(event.clientY / window.innerHeight) * 2 + 1;
+    });
+
+    let clock = 0;
+
+    function animate() {
+        if (!prefersReducedMotion) {
+            clock += 0.015;
+
+            const positions = planeGeometry.attributes.position.array;
+            for (let i = 0; i < positions.length; i += 3) {
+                const x = basePositions[i];
+                const y = basePositions[i + 1];
+                const wave = Math.sin(x * 0.9 + clock) * 0.18 + Math.cos(y * 0.7 - clock) * 0.14;
+                positions[i + 2] = wave;
+            }
+            planeGeometry.attributes.position.needsUpdate = true;
+
+            group.rotation.y += 0.0012;
+            group.rotation.x = -0.45 + mouseY * 0.08;
+            group.rotation.z = 0.12 + mouseX * 0.06;
+
+            points.rotation.y -= 0.0009;
+        }
+
+        renderer.render(scene, camera);
+        requestAnimationFrame(animate);
+    }
+    animate();
+
+    window.addEventListener('resize', () => {
+        camera.aspect = window.innerWidth / window.innerHeight;
+        camera.updateProjectionMatrix();
+        renderer.setSize(window.innerWidth, window.innerHeight);
+    });
+}
+
+const navLinks = document.querySelectorAll('nav a.nav-link');
+navLinks.forEach((link) => {
+    link.addEventListener('click', (event) => {
+        const targetUrl = new URL(link.href, window.location.origin);
+        const currentUrl = new URL(window.location.href);
+        if (targetUrl.pathname === currentUrl.pathname && targetUrl.hash) {
+            const target = document.querySelector(targetUrl.hash);
+            if (target) {
+                event.preventDefault();
+                target.scrollIntoView({ behavior: prefersReducedMotion ? 'auto' : 'smooth' });
             }
         }
     });
-}, { rootMargin: '-50% 0px -50% 0px' });
-
-sections.forEach(section => {
-    observer.observe(section);
 });
 
-// Download function
-function forceDownload() {
-    console.log('Download function called'); // Debug log
-    
-    // Create a temporary link element
-    const link = document.createElement('a');
-    link.href = 'assets/resume/Harisankar_Suresh_Resume.pdf';
-    link.download = 'Harisankar_Suresh_Resume.pdf';
-    link.style.display = 'none';
-    
-    // Append to body, click, and remove
-    document.body.appendChild(link);
-    link.click();
-    document.body.removeChild(link);
-    
-    console.log('Download triggered'); // Debug log
+const revealElements = document.querySelectorAll('.reveal');
+if (revealElements.length) {
+    const revealObserver = new IntersectionObserver((entries, observer) => {
+        entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('in-view');
+                observer.unobserve(entry.target);
+            }
+        });
+    }, { threshold: 0.2 });
+
+    revealElements.forEach((el) => revealObserver.observe(el));
+}
+
+const sections = document.querySelectorAll('section[id]');
+if (sections.length) {
+    const sectionObserver = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+                const id = entry.target.getAttribute('id');
+                const navLink = document.querySelector(`nav a[href="#${id}"]`);
+                if (navLink) {
+                    document.querySelectorAll('nav a').forEach((link) => link.classList.remove('active'));
+                    navLink.classList.add('active');
+                }
+            }
+        });
+    }, { rootMargin: '-45% 0px -45% 0px' });
+
+    sections.forEach((section) => sectionObserver.observe(section));
 }
