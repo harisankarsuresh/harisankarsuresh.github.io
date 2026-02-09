@@ -191,6 +191,21 @@ main {
     font-family: var(--font-heading);
 }
 
+.avatar-wrap {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 18px;
+}
+
+.avatar-wrap img {
+    width: 140px;
+    height: 140px;
+    border-radius: 28px;
+    object-fit: cover;
+    border: 2px solid rgba(92, 225, 230, 0.5);
+    box-shadow: 0 12px 30px rgba(12, 18, 26, 0.55);
+}
+
 .card-accent {
     margin-top: 18px;
     color: var(--muted);
