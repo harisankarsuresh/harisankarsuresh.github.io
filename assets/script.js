@@ -15,7 +15,7 @@ if (canvasContainer && window.THREE) {
         color: 0x5ce1e6,
         wireframe: true,
         transparent: true,
-        opacity: 0.35
+        opacity: 0.24
     });
     const plane = new THREE.Mesh(planeGeometry, planeMaterial);
     plane.rotation.x = -Math.PI / 2.6;
@@ -40,9 +40,9 @@ if (canvasContainer && window.THREE) {
 
     const pointsMaterial = new THREE.PointsMaterial({
         color: 0xf6c453,
-        size: 0.06,
+        size: 0.05,
         transparent: true,
-        opacity: 0.75
+        opacity: 0.5
     });
 
     const points = new THREE.Points(pointsGeometry, pointsMaterial);
@@ -85,9 +85,9 @@ if (canvasContainer && window.THREE) {
             }
             planeGeometry.attributes.position.needsUpdate = true;
 
-            group.rotation.y += 0.0012;
-            group.rotation.x = -0.45 + mouseY * 0.08;
-            group.rotation.z = 0.12 + mouseX * 0.06;
+            group.rotation.y += 0.0009;
+            group.rotation.x = -0.45 + mouseY * 0.05;
+            group.rotation.z = 0.12 + mouseX * 0.04;
 
             points.rotation.y -= 0.0009;
         }
