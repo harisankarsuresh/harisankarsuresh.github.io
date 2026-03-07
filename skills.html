@@ -6,16 +6,23 @@
     <title>Skills | Harisankar Suresh</title>
     <link rel="stylesheet" href="assets/custom.css">
     <link rel="stylesheet" href="assets/skills.css">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
 </head>
-<body>
-    <div id="canvas-container" aria-hidden="true"></div>
+<body class="skills-page">
+    <div class="scroll-progress" aria-hidden="true"></div>
+    <div class="page-aura" aria-hidden="true">
+        <span class="aura aura-blue"></span>
+        <span class="aura aura-red"></span>
+        <span class="aura aura-yellow"></span>
+        <span class="aura aura-green"></span>
+        <span class="grid-glow"></span>
+    </div>
 
-    <header>
-        <div class="logo">
-            <a href="index.html">HS</a>
-        </div>
-        <nav>
+    <header class="site-header">
+        <a class="brand magnetic" href="index.html#home">
+            <span class="brand-mark">HS</span>
+            <span class="brand-copy">Harisankar Suresh</span>
+        </a>
+        <nav class="site-nav">
             <a href="index.html#about" class="nav-link">About</a>
             <a href="index.html#experience" class="nav-link">Experience</a>
             <a href="index.html#projects" class="nav-link">Projects</a>
@@ -24,19 +31,73 @@
             <a href="index.html#publications" class="nav-link">Publications</a>
             <a href="index.html#contact" class="nav-link">Contact</a>
         </nav>
+        <a class="nav-cta magnetic" href="assets/resume/Harisankar_Suresh_Resume.pdf" download="Harisankar_Suresh_Resume.pdf">Resume</a>
     </header>
 
     <main>
+        <section class="section toolkit-hero">
+            <div class="container toolkit-layout">
+                <div class="hero-copy reveal">
+                    <p class="eyebrow">Toolkit</p>
+                    <h1>Stacks for <span class="type-shell"><span class="typewriter" data-words="battery modeling|automation systems|data diagnostics|reporting pipelines"></span></span></h1>
+                    <p class="lead">A closer look at the tools, languages, and methods I use across battery validation, simulation programs, reporting systems, and engineering analytics.</p>
+                    <div class="hero-actions">
+                        <a class="button primary magnetic" href="index.html#contact">Start a conversation</a>
+                        <a class="button secondary magnetic" href="index.html">Back to home</a>
+                    </div>
+                    <div class="hero-meta">
+                        <span>Modeling</span>
+                        <span>Data systems</span>
+                        <span>Automation</span>
+                        <span>Diagnostics</span>
+                    </div>
+                </div>
+
+                <div class="hero-stage toolkit-stage tilt-card reveal" data-scene>
+                    <span class="gravity-chip chip-blue chip-one" data-depth="18">Python</span>
+                    <span class="gravity-chip chip-blue chip-five" data-depth="10">Pytest</span>
+
+                    <article class="profile-card" data-depth="6">
+                        <div class="profile-info compact-profile">
+                            <p class="mini-label">How I use the stack</p>
+                            <h3>From simulation fidelity to clean operational reporting.</h3>
+                            <p>I usually work across physics-based modeling, SQL and database validation, ETL-style automation, and lightweight dashboards for engineering teams.</p>
+                        </div>
+                    </article>
+
+                    <article class="floating-note note-left" data-depth="-10">
+                        <p class="mini-label">Built for</p>
+                        <div class="signal-list">
+                            <span>Field diagnostics</span>
+                            <span>Range prediction</span>
+                            <span>Quality checks</span>
+                            <span>Fleet reporting</span>
+                        </div>
+                    </article>
+
+                    <article class="floating-note note-right" data-depth="12">
+                        <p class="mini-label">Operating style</p>
+                        <ul class="mini-list">
+                            <li>SQL-first investigations</li>
+                            <li>Strong validation loops</li>
+                            <li>Automation over repetition</li>
+                        </ul>
+                    </article>
+                </div>
+            </div>
+        </section>
+
         <section class="section">
             <div class="container">
                 <div class="section-header reveal">
                     <div>
-                        <p class="section-kicker">Toolkit</p>
-                        <h1>Skills</h1>
+                        <p class="section-kicker">Inventory</p>
+                        <h2>Tools I rely on in day-to-day engineering work.</h2>
                     </div>
-                    <p class="section-summary">Tools, platforms, and methods used across battery modeling and simulation programs.</p>
+                    <p class="section-summary">Grouped by the roles they play across battery simulation, data operations, validation, and reporting.</p>
                 </div>
-                <div class="skills-grid reveal">
+
+                <div class="skills-grid" data-stagger>
                     <div class="panel skill-group">
                         <h3>Developer Tools</h3>
                         <div class="skill-logo-grid">
@@ -51,6 +112,7 @@
                             <div class="skill-logo-item"><img src="assets/logos/Matlab.png" alt="MATLAB logo"><span>MATLAB</span></div>
                         </div>
                     </div>
+
                     <div class="panel skill-group">
                         <h3>Simulation and Software</h3>
                         <div class="skill-logo-grid">
@@ -62,6 +124,7 @@
                             <div class="skill-logo-item"><img src="assets/logos/simulink.png" alt="Simulink logo"><span>Simulink</span></div>
                         </div>
                     </div>
+
                     <div class="panel skill-group">
                         <h3>Data and Databases</h3>
                         <div class="skill-logo-grid">
@@ -69,19 +132,20 @@
                             <div class="skill-logo-item"><img src="assets/logos/Pandas.png" alt="Pandas logo"><span>Pandas</span></div>
                             <div class="skill-logo-item"><img src="assets/logos/NumPy.png" alt="NumPy logo"><span>NumPy</span></div>
                         </div>
-                        <p class="skill-subtitle">Additional Skills</p>
+                        <p class="skill-subtitle">Additional skills</p>
                         <div class="text-skill-list">
                             <span class="text-skill-chip">SQL</span>
                             <span class="text-skill-chip">PostgreSQL</span>
                         </div>
                     </div>
+
                     <div class="panel skill-group">
                         <h3>Automation and Reporting</h3>
                         <div class="skill-logo-grid">
                             <div class="skill-logo-item"><img src="assets/logos/Pytest.png" alt="Pytest logo"><span>Pytest</span></div>
                             <div class="skill-logo-item"><img src="assets/logos/docker.svg" alt="Docker logo"><span>Docker</span></div>
                         </div>
-                        <p class="skill-subtitle">Additional Skills</p>
+                        <p class="skill-subtitle">Additional skills</p>
                         <div class="text-skill-list">
                             <span class="text-skill-chip">Automation Pipelines</span>
                             <span class="text-skill-chip">Data Validation</span>
@@ -90,6 +154,7 @@
                             <span class="text-skill-chip">Monitoring</span>
                         </div>
                     </div>
+
                     <div class="panel skill-group">
                         <h3>Modeling and Methods</h3>
                         <div class="text-skill-list">
@@ -102,6 +167,7 @@
                             <span class="text-skill-chip">HPC</span>
                         </div>
                     </div>
+
                     <div class="panel skill-group">
                         <h3>Soft Skills</h3>
                         <div class="text-skill-list">
@@ -110,6 +176,7 @@
                             <span class="text-skill-chip">Communication</span>
                         </div>
                     </div>
+
                     <div class="panel skill-group">
                         <h3>Languages</h3>
                         <div class="text-skill-list">
@@ -123,7 +190,7 @@
         </section>
     </main>
 
-    <footer>
+    <footer class="site-footer">
         <p>Copyright 2026 Harisankar Suresh. All rights reserved.</p>
     </footer>
 

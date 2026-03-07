@@ -5,16 +5,23 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Harisankar Suresh | Computational Engineer</title>
     <link rel="stylesheet" href="assets/custom.css">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
 </head>
-<body>
-    <div id="canvas-container" aria-hidden="true"></div>
+<body class="page-home">
+    <div class="scroll-progress" aria-hidden="true"></div>
+    <div class="page-aura" aria-hidden="true">
+        <span class="aura aura-blue"></span>
+        <span class="aura aura-red"></span>
+        <span class="aura aura-yellow"></span>
+        <span class="aura aura-green"></span>
+        <span class="grid-glow"></span>
+    </div>
 
-    <header>
-        <div class="logo">
-            <a href="#home">HS</a>
-        </div>
-        <nav>
+    <header class="site-header">
+        <a class="brand magnetic" href="#home">
+            <span class="brand-mark">HS</span>
+            <span class="brand-copy">Harisankar Suresh</span>
+        </a>
+        <nav class="site-nav">
             <a href="#about" class="nav-link">About</a>
             <a href="#experience" class="nav-link">Experience</a>
             <a href="#projects" class="nav-link">Projects</a>
@@ -23,65 +30,117 @@
             <a href="#publications" class="nav-link">Publications</a>
             <a href="#contact" class="nav-link">Contact</a>
         </nav>
+        <a class="nav-cta magnetic" href="assets/resume/Harisankar_Suresh_Resume.pdf" download="Harisankar_Suresh_Resume.pdf">Resume</a>
     </header>
 
     <main>
         <section id="home" class="section hero">
-            <div class="container hero-inner reveal">
-                <div class="hero-copy">
-                    <p class="eyebrow">Data Scientist and Cell Modelling Engineer</p>
-                    <h1>Harisankar Suresh</h1>
-                    <p class="lead">Data scientist and computational engineer focused on automation, database systems, and data-driven simulation. I build reliable analytics pipelines, SQL-driven reporting, and battery modeling workflows that connect field data with predictive models.</p>
+            <div class="container hero-layout">
+                <div class="hero-copy reveal">
+                    <p class="eyebrow">Computational engineer · data systems · battery analytics</p>
+                    <h1>Engineering battery intelligence with <span class="type-shell"><span class="typewriter" data-words="automation workflows|simulation systems|SQL-driven analytics|model validation"></span></span></h1>
+                    <p class="lead">I design data systems and modeling workflows that turn battery test data, simulation outputs, and field diagnostics into reliable engineering decisions. My work blends automation, manual SQL analysis, and physics-based battery modeling.</p>
                     <div class="hero-actions">
-                        <a class="button primary" href="assets/resume/Harisankar_Suresh_Resume.pdf" download="Harisankar_Suresh_Resume.pdf">Download Resume</a>
-                        <a class="button ghost" href="mailto:harisankarsuresh100@gmail.com">Email</a>
-                        <a class="button ghost" href="https://www.linkedin.com/in/harisankar-suresh-193922156" target="_blank" rel="noopener">LinkedIn</a>
+                        <a class="button primary magnetic" href="assets/resume/Harisankar_Suresh_Resume.pdf" download="Harisankar_Suresh_Resume.pdf">Download Resume</a>
+                        <a class="button secondary magnetic" href="skills.html">Explore Skills</a>
+                        <a class="button ghost magnetic" href="https://www.linkedin.com/in/harisankar-suresh-193922156" target="_blank" rel="noopener">LinkedIn</a>
+                        <a class="button ghost magnetic" href="mailto:harisankarsuresh100@gmail.com">Email</a>
                     </div>
                     <div class="hero-meta">
-                        <span>Open to automation, database, and manual SQL roles</span>
                         <span>Bengaluru, India</span>
+                        <span>Automation and reporting roles</span>
                         <span>+91 89213 45576</span>
                         <span>harisankarsuresh100@gmail.com</span>
                     </div>
+                    <div class="hero-strip" data-stagger>
+                        <article class="stat-card">
+                            <span class="stat-value">Automation</span>
+                            <span class="stat-label">Pipelines for diagnostics, dashboards, and validation loops.</span>
+                        </article>
+                        <article class="stat-card">
+                            <span class="stat-value">Simulation</span>
+                            <span class="stat-label">PyBaMM, GT-Suite, COMSOL, and MATLAB workflows for cell programs.</span>
+                        </article>
+                        <article class="stat-card">
+                            <span class="stat-value">Data Systems</span>
+                            <span class="stat-label">SQL-first analytics with PostgreSQL, MongoDB, and fleet telemetry.</span>
+                        </article>
+                    </div>
                 </div>
-                <div class="hero-card">
-                    <div class="avatar-wrap">
-                        <img src="assets/images/harisankar-profile.jpg" alt="Portrait of Harisankar Suresh">
-                    </div>
-                    <h3>Focus Areas</h3>
-                    <div class="chip-list">
-                        <span class="chip">Automation pipelines</span>
-                        <span class="chip">SQL and databases</span>
-                        <span class="chip">Data validation</span>
-                        <span class="chip">Reporting and dashboards</span>
-                        <span class="chip">Battery analytics</span>
-                        <span class="chip">ML for diagnostics</span>
-                    </div>
-                    <div class="card-accent">Building dependable, SQL-first analytics and automation workflows for engineering and operations teams.</div>
+
+                <div class="hero-stage tilt-card reveal" data-scene>
+                    <span class="gravity-chip chip-blue chip-one" data-depth="18">PyBaMM</span>
+                    <span class="gravity-chip chip-yellow chip-three" data-depth="12">SQL</span>
+                    <span class="gravity-chip chip-green chip-four" data-depth="-12">MongoDB</span>
+                    <span class="gravity-chip chip-blue chip-five" data-depth="10">GT-Suite</span>
+
+                    <article class="profile-card" data-depth="6">
+                        <div class="portrait-frame">
+                            <img src="assets/images/harisankar-profile.jpg" alt="Portrait of Harisankar Suresh">
+                        </div>
+                        <div class="profile-info">
+                            <p class="mini-label">Current focus</p>
+                            <h3>Automation, model validation, and engineering data systems.</h3>
+                            <p>Building SoH and SoC validation, simulation orchestration, and dashboard-ready reporting for EV battery programs.</p>
+                        </div>
+                    </article>
+
+                    <article class="floating-note note-left" data-depth="-10">
+                        <p class="mini-label">Focus areas</p>
+                        <div class="signal-list">
+                            <span>Battery diagnostics</span>
+                            <span>Fleet analytics</span>
+                            <span>Range prediction</span>
+                            <span>Data validation</span>
+                        </div>
+                    </article>
+
+                    <article class="floating-note note-right" data-depth="12">
+                        <p class="mini-label">Best fit</p>
+                        <ul class="mini-list">
+                            <li>Automation pipelines for engineering workflows</li>
+                            <li>SQL, reporting, and manual diagnostics</li>
+                            <li>Simulation-backed decision support</li>
+                        </ul>
+                    </article>
                 </div>
             </div>
         </section>
 
-        <section id="about" class="section">
+        <section id="about" class="section section-soft">
             <div class="container">
                 <div class="section-header reveal">
                     <div>
                         <p class="section-kicker">Profile</p>
-                        <h2>About</h2>
+                        <h2>Bridging simulation depth with production-ready analytics.</h2>
                     </div>
-                    <p class="section-summary">Automation, database systems, and simulation analytics for battery platforms.</p>
+                    <p class="section-summary">I work where battery modeling, data quality, and engineering operations intersect, turning raw telemetry into dependable decisions.</p>
                 </div>
-                <div class="two-col reveal">
-                    <p>I focus on automation and database workflows that turn raw battery data into reliable insights. My work connects simulation outputs, manual SQL analysis, and analytics dashboards to help engineering teams make faster decisions.</p>
-                    <div class="panel">
-                        <h3>Core Strengths</h3>
+
+                <div class="spotlight-grid" data-stagger>
+                    <article class="panel">
+                        <p class="panel-kicker">What I build</p>
+                        <h3>Workflows that stay rigorous from lab models to field diagnostics.</h3>
+                        <p>I connect PyBaMM and GT-Suite simulation workflows with SQL analysis, data validation, and reporting layers so teams can move faster without losing engineering quality.</p>
+                        <div class="pill-list">
+                            <span class="text-skill-chip">Simulation orchestration</span>
+                            <span class="text-skill-chip">Manual SQL diagnostics</span>
+                            <span class="text-skill-chip">Automation pipelines</span>
+                            <span class="text-skill-chip">Dashboard reporting</span>
+                            <span class="text-skill-chip">Battery analytics</span>
+                            <span class="text-skill-chip">Model calibration</span>
+                        </div>
+                    </article>
+
+                    <article class="panel">
+                        <p class="panel-kicker">Core strengths</p>
                         <ul class="clean-list">
                             <li>Automation pipelines for analytics, reporting, and quality checks.</li>
-                            <li>Manual SQL, database validation, and performance monitoring.</li>
+                            <li>Manual SQL, database validation, and fleet data diagnostics.</li>
                             <li>Battery modeling with PyBaMM, GT-Suite, COMSOL, and MATLAB/Simulink.</li>
-                            <li>Predictive modeling and diagnostics for SoH/SoC estimation.</li>
+                            <li>Predictive modeling for SoH and SoC estimation with strong validation loops.</li>
                         </ul>
-                    </div>
+                    </article>
                 </div>
             </div>
         </section>
@@ -91,24 +150,25 @@
                 <div class="section-header reveal">
                     <div>
                         <p class="section-kicker">Career</p>
-                        <h2>Experience</h2>
+                        <h2>Experience across battery programs, fleet data, and simulation systems.</h2>
                     </div>
-                    <p class="section-summary">Battery modeling, simulation workflows, and data systems across EV programs.</p>
+                    <p class="section-summary">Hands-on work across EV cell modeling, physics-based validation, IoT analytics, and engineering reporting.</p>
                 </div>
-                <div class="timeline reveal">
+
+                <div class="timeline" data-stagger>
                     <article class="timeline-item">
                         <div class="timeline-marker"></div>
                         <div class="timeline-content">
                             <div class="item-header">
                                 <h3>Ola Electric Technologies Pvt. Ltd.</h3>
-                                <span>Assistant Manager, Cell Modelling Engineer - Bengaluru</span>
+                                <span>Assistant Manager, Cell Modelling Engineer · Bengaluru</span>
                                 <span class="item-date">May 12, 2025 - Present</span>
                             </div>
                             <ul class="clean-list">
                                 <li>Developed real-time SoH prediction models in PyBaMM and GT-AutoLion to validate field test data for NMC cells.</li>
                                 <li>Built co-simulation models in MATLAB and Simulink to estimate SoC and SoH error bounds.</li>
                                 <li>Automated performance and range prediction pipelines in GT-Suite and delivered service complaint dashboards.</li>
-                                <li>Implemented physics-based SoC/SoH models for Ola Bharat 4680, LG, and BAK cells with validation checks.</li>
+                                <li>Implemented physics-based SoC and SoH models for Ola Bharat 4680, LG, and BAK cells with validation checks.</li>
                                 <li>Worked with PostgreSQL and MongoDB for analytics, validation, and field diagnostics.</li>
                             </ul>
                         </div>
@@ -119,7 +179,7 @@
                         <div class="timeline-content">
                             <div class="item-header">
                                 <h3>SAR Electric Mobility (Lime.ai)</h3>
-                                <span>Senior Engineer - Bengaluru</span>
+                                <span>Senior Engineer · Bengaluru</span>
                                 <span class="item-date">January 16, 2023 - May 6, 2025</span>
                             </div>
                             <ul class="clean-list">
@@ -137,7 +197,7 @@
                         <div class="timeline-content">
                             <div class="item-header">
                                 <h3>BITS Pilani, Hyderabad Campus</h3>
-                                <span>Teaching Assistant - Hyderabad</span>
+                                <span>Teaching Assistant · Hyderabad</span>
                                 <span class="item-date">January 1, 2022 - December 31, 2022</span>
                             </div>
                             <ul class="clean-list">
@@ -151,7 +211,7 @@
                         <div class="timeline-content">
                             <div class="item-header">
                                 <h3>Satish Dhawan Space Centre, ISRO</h3>
-                                <span>Intern - Sriharikota</span>
+                                <span>Intern · Sriharikota</span>
                                 <span class="item-date">2018</span>
                             </div>
                             <ul class="clean-list">
@@ -163,20 +223,21 @@
             </div>
         </section>
 
-        <section id="projects" class="section">
+        <section id="projects" class="section section-soft">
             <div class="container">
                 <div class="section-header reveal">
                     <div>
-                        <p class="section-kicker">Selected Work</p>
-                        <h2>Projects</h2>
+                        <p class="section-kicker">Selected work</p>
+                        <h2>Projects that move from notebook prototypes to engineering decisions.</h2>
                     </div>
-                    <p class="section-summary">Productized simulation platforms and predictive models from lab to fleet.</p>
+                    <p class="section-summary">A mix of internal platforms, predictive models, and physics-driven battery tooling.</p>
                 </div>
-                <div class="card-grid reveal">
+
+                <div class="card-grid" data-stagger>
                     <article class="card">
                         <h3>olabatsim</h3>
                         <p>Battery simulation platform for fast, repeatable runs across Python and GUI workflows.</p>
-                        <div class="card-meta">Ola Electric - June 2023 to Present</div>
+                        <div class="card-meta">Ola Electric · June 2023 to Present</div>
                         <div class="tag-list">
                             <span class="tag">PyBaMM</span>
                             <span class="tag">GT-Suite</span>
@@ -188,10 +249,11 @@
                             <li>Predicted field voltage with SPMe models under 1 percent error.</li>
                         </ul>
                     </article>
+
                     <article class="card">
                         <h3>lime internal getter</h3>
                         <p>Internal data handling library for streamlined retrieval and analytics workflows.</p>
-                        <div class="card-meta">Lime.ai - January 2023 to June 2025</div>
+                        <div class="card-meta">Lime.ai · January 2023 to June 2025</div>
                         <div class="tag-list">
                             <span class="tag">Pandas</span>
                             <span class="tag">REST APIs</span>
@@ -203,10 +265,11 @@
                             <li>Integrated with IoT pipelines for analytics and model validation.</li>
                         </ul>
                     </article>
+
                     <article class="card">
                         <h3>Cell Unbalance Prediction</h3>
                         <p>LLM based model to predict cell unbalance dates with high accuracy.</p>
-                        <div class="card-meta">Lime.ai - March 2024 to January 2025</div>
+                        <div class="card-meta">Lime.ai · March 2024 to January 2025</div>
                         <div class="tag-list">
                             <span class="tag">Python</span>
                             <span class="tag">Scipy</span>
@@ -217,10 +280,11 @@
                             <li>Reached 90 percent accuracy for predicting unbalance date windows.</li>
                         </ul>
                     </article>
+
                     <article class="card">
                         <h3>Physics Based Cell Modelling</h3>
                         <p>Physics-based NMC and LFP models for fast simulation and charging analysis.</p>
-                        <div class="card-meta">Lime.ai - January 2023 to May 2025</div>
+                        <div class="card-meta">Lime.ai · January 2023 to May 2025</div>
                         <div class="tag-list">
                             <span class="tag">PyBaMM</span>
                             <span class="tag">COMSOL</span>
@@ -230,10 +294,11 @@
                             <li>Matched experimental voltage profiles for NMC and LFP cells.</li>
                         </ul>
                     </article>
+
                     <article class="card">
                         <h3>Physics Informed Model</h3>
                         <p>Physics-based correction model for SoH and SoC to improve fast charging accuracy.</p>
-                        <div class="card-meta">Lime.ai - August 2023 to June 2025</div>
+                        <div class="card-meta">Lime.ai · August 2023 to June 2025</div>
                         <div class="tag-list">
                             <span class="tag">Python</span>
                             <span class="tag">COMSOL</span>
@@ -252,11 +317,12 @@
                 <div class="section-header reveal">
                     <div>
                         <p class="section-kicker">Capabilities</p>
-                        <h2>Skills</h2>
+                        <h2>A toolkit built for simulation, data, and automation.</h2>
                     </div>
-                    <p class="section-summary">Automation tooling, database systems, and simulation analytics.</p>
+                    <p class="section-summary">Selected software, libraries, and methods used across battery programs and reporting systems.</p>
                 </div>
-                <div class="skill-grid reveal">
+
+                <div class="skill-grid" data-stagger>
                     <div class="panel">
                         <h3>Developer Tools</h3>
                         <div class="skill-logo-grid">
@@ -271,6 +337,7 @@
                             <div class="skill-logo-item"><img src="assets/logos/Matlab.png" alt="MATLAB logo"><span>MATLAB</span></div>
                         </div>
                     </div>
+
                     <div class="panel">
                         <h3>Simulation and Software</h3>
                         <div class="skill-logo-grid">
@@ -282,6 +349,7 @@
                             <div class="skill-logo-item"><img src="assets/logos/simulink.png" alt="Simulink logo"><span>Simulink</span></div>
                         </div>
                     </div>
+
                     <div class="panel">
                         <h3>Data and Databases</h3>
                         <div class="skill-logo-grid">
@@ -289,19 +357,20 @@
                             <div class="skill-logo-item"><img src="assets/logos/Pandas.png" alt="Pandas logo"><span>Pandas</span></div>
                             <div class="skill-logo-item"><img src="assets/logos/NumPy.png" alt="NumPy logo"><span>NumPy</span></div>
                         </div>
-                        <p class="skill-subtitle">Additional Skills</p>
+                        <p class="skill-subtitle">Additional skills</p>
                         <div class="text-skill-list">
                             <span class="text-skill-chip">SQL</span>
                             <span class="text-skill-chip">PostgreSQL</span>
                         </div>
                     </div>
+
                     <div class="panel">
                         <h3>Automation and Reporting</h3>
                         <div class="skill-logo-grid">
                             <div class="skill-logo-item"><img src="assets/logos/Pytest.png" alt="Pytest logo"><span>Pytest</span></div>
                             <div class="skill-logo-item"><img src="assets/logos/docker.svg" alt="Docker logo"><span>Docker</span></div>
                         </div>
-                        <p class="skill-subtitle">Additional Skills</p>
+                        <p class="skill-subtitle">Additional skills</p>
                         <div class="text-skill-list">
                             <span class="text-skill-chip">Automation Pipelines</span>
                             <span class="text-skill-chip">Data Validation</span>
@@ -310,6 +379,7 @@
                             <span class="text-skill-chip">Monitoring</span>
                         </div>
                     </div>
+
                     <div class="panel">
                         <h3>Methods</h3>
                         <div class="text-skill-list">
@@ -321,6 +391,7 @@
                             <span class="text-skill-chip">HPC</span>
                         </div>
                     </div>
+
                     <div class="panel">
                         <h3>Soft Skills and Languages</h3>
                         <div class="text-skill-list">
@@ -333,36 +404,38 @@
                         </div>
                     </div>
                 </div>
-                <div class="section-action">
-                    <a class="button ghost" href="skills.html">View Skills Page</a>
+
+                <div class="section-action reveal">
+                    <a class="button ghost magnetic" href="skills.html">Open the full skills page</a>
                 </div>
             </div>
         </section>
 
-        <section id="education" class="section">
+        <section id="education" class="section section-soft">
             <div class="container">
                 <div class="section-header reveal">
                     <div>
                         <p class="section-kicker">Education</p>
-                        <h2>Academic Background</h2>
+                        <h2>Academic background rooted in mechanical engineering and simulation.</h2>
                     </div>
-                    <p class="section-summary">Mechanical engineering foundations with a focus on simulation.</p>
+                    <p class="section-summary">Strong engineering fundamentals, with graduate work that sharpened simulation and modeling depth.</p>
                 </div>
-                <div class="card-grid reveal">
+
+                <div class="card-grid" data-stagger>
                     <article class="card">
                         <h3>BITS Pilani, Hyderabad Campus</h3>
                         <p>M.E. in Mechanical Engineering</p>
-                        <div class="card-meta">2023 - CGPA 8.00</div>
+                        <div class="card-meta">2023 · CGPA 8.00</div>
                     </article>
                     <article class="card">
                         <h3>Amrita School of Engineering, Amritapuri Campus</h3>
                         <p>B.Tech in Mechanical Engineering</p>
-                        <div class="card-meta">2021 - CGPA 7.62</div>
+                        <div class="card-meta">2021 · CGPA 7.62</div>
                     </article>
                     <article class="card">
                         <h3>Christ Nagar English Higher Secondary School, Kerala</h3>
                         <p>Higher Secondary Education, Kerala State Board of Education</p>
-                        <div class="card-meta">2017 - Percentage 94.5</div>
+                        <div class="card-meta">2017 · Percentage 94.5</div>
                     </article>
                 </div>
             </div>
@@ -373,20 +446,21 @@
                 <div class="section-header reveal">
                     <div>
                         <p class="section-kicker">Research</p>
-                        <h2>Publications</h2>
+                        <h2>Published work in robotics, localization, and thermal simulation.</h2>
                     </div>
-                    <p class="section-summary">Published work in robotics, localization, and thermal simulation.</p>
+                    <p class="section-summary">Research output that combines control systems, simulation fidelity, and engineering rigor.</p>
                 </div>
-                <div class="card-grid reveal">
+
+                <div class="card-grid" data-stagger>
                     <article class="card">
                         <h3>Effects of Systemic Error on Localization and Control of Differential Drive Mobile Robot</h3>
-                        <p>International Journal of Microsystems and IoT - December 18, 2023</p>
+                        <p>International Journal of Microsystems and IoT · December 18, 2023</p>
                         <div class="card-meta">DOI: 10.5281/zenodo.10441392</div>
                         <a class="text-link" href="https://doi.org/10.5281/zenodo.10441392" target="_blank" rel="noopener">View publication</a>
                     </article>
                     <article class="card">
                         <h3>Steady State Thermal Simulation of High Temperature PEM Fuel Cell with Different Flow Field Patterns</h3>
-                        <p>AIP Publishing - June 3, 2024</p>
+                        <p>AIP Publishing · June 3, 2024</p>
                         <div class="card-meta">DOI: 10.1063/5.0118593</div>
                         <a class="text-link" href="https://doi.org/10.1063/5.0118593" target="_blank" rel="noopener">View publication</a>
                     </article>
@@ -394,16 +468,17 @@
             </div>
         </section>
 
-        <section id="achievements" class="section">
+        <section id="achievements" class="section section-soft">
             <div class="container">
                 <div class="section-header reveal">
                     <div>
                         <p class="section-kicker">Recognition</p>
-                        <h2>Achievements</h2>
+                        <h2>Recognition for engineering impact and research contributions.</h2>
                     </div>
-                    <p class="section-summary">Awards for engineering impact and research contributions.</p>
+                    <p class="section-summary">Awards tied to performance, collaboration, and technical contribution.</p>
                 </div>
-                <div class="card-grid reveal">
+
+                <div class="card-grid" data-stagger>
                     <article class="card">
                         <h3>Best Performer of the Month</h3>
                         <p>Lime.ai</p>
@@ -411,7 +486,7 @@
                     </article>
                     <article class="card">
                         <h3>Value Award AIM and ACT</h3>
-                        <p>Lime.ai - Cell Algorithm Modeling Team</p>
+                        <p>Lime.ai · Cell Algorithm Modeling Team</p>
                         <div class="card-meta">August 1, 2024</div>
                     </article>
                     <article class="card">
@@ -428,21 +503,25 @@
                 <div class="section-header reveal">
                     <div>
                         <p class="section-kicker">Contact</p>
-                        <h2>Let's Connect</h2>
+                        <h2>Open to battery analytics, automation, and data-system roles.</h2>
                     </div>
-                    <p class="section-summary">Open to collaborations in battery modeling, simulation, and diagnostics.</p>
+                    <p class="section-summary">If your team needs simulation depth, data rigor, and clean execution, I am available to talk.</p>
                 </div>
-                <div class="contact-grid reveal">
+
+                <div class="contact-grid" data-stagger>
                     <div class="panel">
-                        <h3>Email</h3>
+                        <p class="panel-kicker">Email</p>
+                        <h3>Direct contact</h3>
                         <a class="text-link" href="mailto:harisankarsuresh100@gmail.com">harisankarsuresh100@gmail.com</a>
                     </div>
                     <div class="panel">
-                        <h3>Phone</h3>
+                        <p class="panel-kicker">Phone</p>
+                        <h3>Call</h3>
                         <a class="text-link" href="tel:+918921345576">+91 89213 45576</a>
                     </div>
                     <div class="panel">
-                        <h3>LinkedIn</h3>
+                        <p class="panel-kicker">LinkedIn</p>
+                        <h3>Professional profile</h3>
                         <a class="text-link" href="https://www.linkedin.com/in/harisankar-suresh-193922156" target="_blank" rel="noopener">linkedin.com/in/harisankar-suresh-193922156</a>
                     </div>
                 </div>
@@ -450,7 +529,7 @@
         </section>
     </main>
 
-    <footer>
+    <footer class="site-footer">
         <p>Copyright 2026 Harisankar Suresh. All rights reserved.</p>
     </footer>
 

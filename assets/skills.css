@@ -1,21 +1,23 @@
-.skills-grid {
+.skills-page .skills-grid {
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+}
+
+.skills-page .skill-group {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-    gap: 20px;
+    gap: 16px;
+    align-content: start;
 }
 
-.skill-group {
-    display: grid;
-    gap: 14px;
+.skills-page .toolkit-stage .profile-card {
+    margin-top: 118px;
 }
 
-.skill-group h3 {
-    margin: 0;
-    font-family: var(--font-heading);
-}
-
-@media (max-width: 640px) {
-    .skills-grid {
+@media (max-width: 720px) {
+    .skills-page .skills-grid {
         grid-template-columns: 1fr;
+    }
+
+    .skills-page .toolkit-stage .profile-card {
+        margin-top: 94px;
     }
 }
