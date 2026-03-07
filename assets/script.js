@@ -94,17 +94,90 @@ function initReveal() {
 }
 
 function initTypewriters() {
-    const typewriters = document.querySelectorAll('.typewriter');
-    typewriters.forEach((node) => {
-        const words = (node.dataset.words || '')
-            .split('|')
-            .map((word) => word.trim())
-            .filter(Boolean);
+    const typewriters = Array.from(document.querySelectorAll('.typewriter'))
+        .map((node) => {
+            const words = (node.dataset.words || '')
+                .split('|')
+                .map((word) => word.trim())
+                .filter(Boolean);
 
-        if (!words.length) {
-            return;
-        }
+            return {
+                node,
+                shell: node.closest('.type-shell'),
+                words
+            };
+        })
+        .filter(({ words }) => words.length);
 
+    if (!typewriters.length) {
+        return;
+    }
+
+    const createMeasure = (node) => {
+        const styles = window.getComputedStyle(node);
+        const measure = document.createElement('span');
+        measure.className = 'typewriter-measure';
+        measure.setAttribute('aria-hidden', 'true');
+        measure.style.fontFamily = styles.fontFamily;
+        measure.style.fontSize = styles.fontSize;
+        measure.style.fontStyle = styles.fontStyle;
+        measure.style.fontWeight = styles.fontWeight;
+        measure.style.fontStretch = styles.fontStretch;
+        measure.style.fontVariant = styles.fontVariant;
+        measure.style.letterSpacing = styles.letterSpacing;
+        measure.style.lineHeight = styles.lineHeight;
+        measure.style.textTransform = styles.textTransform;
+        measure.style.wordSpacing = styles.wordSpacing;
+        document.body.appendChild(measure);
+        return measure;
+    };
+
+    const reserveTypeSpace = () => {
+        typewriters.forEach(({ node, shell, words }) => {
+            if (!shell) {
+                return;
+            }
+
+            const measure = createMeasure(node);
+            const caretReserve = 28;
+            const parentWidth = shell.parentElement ? Math.ceil(shell.parentElement.clientWidth) : 0;
+
+            let widestWord = 0;
+            words.forEach((word) => {
+                measure.style.inlineSize = 'auto';
+                measure.style.whiteSpace = 'nowrap';
+                measure.textContent = word;
+                widestWord = Math.max(widestWord, Math.ceil(measure.getBoundingClientRect().width));
+            });
+
+            const naturalWidth = widestWord + caretReserve;
+            const shellWidth = parentWidth ? Math.min(naturalWidth, parentWidth) : naturalWidth;
+            const multiline = parentWidth > 0 && naturalWidth > parentWidth;
+            const textWidth = Math.max(shellWidth - caretReserve, 1);
+
+            let tallestWord = 0;
+            words.forEach((word) => {
+                measure.style.whiteSpace = multiline ? 'normal' : 'nowrap';
+                measure.style.inlineSize = multiline ? `${textWidth}px` : 'auto';
+                measure.textContent = word;
+                tallestWord = Math.max(tallestWord, Math.ceil(measure.getBoundingClientRect().height));
+            });
+
+            measure.remove();
+
+            shell.style.setProperty('--type-width', `${shellWidth}px`);
+            shell.style.setProperty('--type-height', `${tallestWord}px`);
+            shell.classList.toggle('type-shell-multiline', multiline);
+        });
+    };
+
+    reserveTypeSpace();
+    if (document.fonts && document.fonts.ready) {
+        document.fonts.ready.then(reserveTypeSpace);
+    }
+    window.addEventListener('resize', reserveTypeSpace);
+
+    typewriters.forEach(({ node, words }) => {
         if (prefersReducedMotion.matches) {
             node.textContent = words[0];
             return;
