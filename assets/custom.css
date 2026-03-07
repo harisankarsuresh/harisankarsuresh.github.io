@@ -440,6 +440,21 @@ main {
     object-fit: contain;
 }
 
+.skill-logo-item img.logo-comsol {
+    max-width: 112px;
+    max-height: 40px;
+}
+
+.skill-logo-item img.logo-autolion {
+    max-width: 120px;
+    max-height: 26px;
+}
+
+.skill-logo-item img.logo-mongodb {
+    max-width: 34px;
+    max-height: 44px;
+}
+
 .skill-logo-item span {
     color: var(--muted);
     font-size: 0.73rem;
